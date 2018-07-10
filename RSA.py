@@ -4,8 +4,8 @@ An implementation of the RSA algorithm for encrypting & decrypting messages usin
 Good luck!
 """
 
-import random
-from RSA_Helper import modularExponent, modularInverse, isPrime, miller_rabin, prime_candidate_generator, gcd
+from random import randint
+from RSA_Helper import modularExponent, modularInverse, isPrime, prime_candidate_generator, gcd
 
 
 def find_primes(number_of_digits):
