@@ -1,6 +1,22 @@
 import random
 from RSA_Helper import modularExponent, modularInverse, isPrime, miller_rabin, prime_candidate_generator, gcd
 
+def find_primes(number_of_digits):
+    """
+    Returns a unique pair of primes where both are both prime and are not equal.
+    :return: a pair of primes (p, q)
+    """
+    primes = []
+    while len(primes) != 2:
+        for n in prime_candidate_generator(number_of_digits, 10000):
+            if isPrime(n):
+                if primes and primes[0] != n:  # primes has p in it already, want to make sure p!=q
+                    primes.append(n)
+            if len(primes) == 2:
+                return tuple(primes)
+
+
+
 
 def generate_keypair(p, q):
     """
